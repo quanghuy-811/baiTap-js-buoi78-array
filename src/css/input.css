@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.container {
+  @apply px-52 pt-40 pb-32 bg-[#f2f2f2];
+}
+
+.btn {
+  @apply bg-black text-white py-2 px-9 rounded-full;
+}
+
+.icon {
+  @apply text-yellow-400;
+}
+
+.inputText {
+  @apply px-4 border shadow-lg border-slate-400 outline-none text-sm rounded-md;
+}
