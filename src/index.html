@@ -11,18 +11,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
     <link rel="stylesheet" href="./css/output.css" />
   </head>
   <body>
     <div class="container">
       <div class="shadow-lg rounded-lg bg-[#f5f5f5]">
-        <div class="px-14 pt-8">
+        <div class="px-14 py-8">
           <div class="flex space-x-7">
-            <input class="inputText" type="text" placeholder="Nhập số N" />
-            <button class="btn">Nhập số</button>
+            <input
+              id="inputArr"
+              class="inputText"
+              type="text"
+              placeholder="Nhập số N"
+            />
+            <button id="btnNhapSo" class="btn">Nhập số</button>
           </div>
-          <div class="rounded-md bg-[#D1E7DD] p-4 mt-4 mb-8">
-            <i class="fa fa-hand-point-right icon"></i>
+          <div class="rounded-md bg-[#D1E7DD] py-4 px-5 mt-4 mb-8">
+            <i class="fa fa-hand-point-right icon"></i> <span id="arr"></span>
           </div>
 
           <!-- Bài 1 -->
@@ -30,25 +36,30 @@
           <button
             id="dropdownDividerButton"
             data-dropdown-toggle="dropdownDivider"
-            class="text-black border border-slate-400 w-full justify-between focus:outline-none focus:bg-blue-50 focus:text-blue-500 text-lg px-5 py-2.5 text-center inline-flex items-center"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
             type="button"
           >
-            Dropdown divider
-            <svg
-              class="w-2.5 h-2.5 ms-3"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 10 6"
-            >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="m1 1 4 4 4-4"
-              />
-            </svg>
+            <div class="flex items-center">
+              <span class="icon__number"> 1 </span>Tổng số dương
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
             <svg
               class="w-2.5 h-2.5 ms-3 hidden"
               aria-hidden="true"
@@ -67,42 +78,598 @@
           </button>
 
           <!-- Dropdown menu -->
-          <div
-            id="dropdownDivider"
-            class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600"
-          >
-            <ul
-              class="py-2 text-sm text-gray-700 dark:text-gray-200"
-              aria-labelledby="dropdownDividerButton"
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
             >
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Dashboard</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Settings</a
-                >
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  >Earnings</a
-                >
-              </li>
-            </ul>
-            <div class="py-2">
-              <a
-                href="#"
-                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
-                >Separated link</a
+              <button onclick="tinhTong()" class="btn">Tính Tổng</button>
+              <div id="result1" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!---- Bài 2  ---->
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider2"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 2 </span> Đếm số dương
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
               >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider2"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="demSoDuong()" class="btn">Đếm số dương</button>
+              <div id="result2" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!--Bài 3  -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider3"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 3 </span> Tìm số nhỏ nhất
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider3"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="soNhoNhat()" class="btn">Tìm số nhỏ nhất</button>
+              <div id="result3" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 4 -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider4"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 4 </span> Tìm số dương nhỏ nhất
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider4"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="timSoDuongNhoNhat()" class="btn">
+                Tìm số dương nhỏ nhất
+              </button>
+              <div id="result4" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 5 -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider5"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 5 </span> Tìm số chẵn cuối cùng
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider5"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="timSoChan()" class="btn">
+                Tìm số dương nhỏ nhất
+              </button>
+              <div id="result5" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 6 -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider6"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 6 </span> Đổi chỗ
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider6"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <div class="flex space-x-2 my-4">
+                <input
+                  type="text"
+                  id="viTri1"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Nhập vị trí 1"
+                />
+                <input
+                  type="text"
+                  id="viTri2"
+                  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5"
+                  placeholder="Nhập vị trí 2"
+                />
+              </div>
+              <button onclick="doiCho()" class="btn">Đổi chỗ</button>
+              <div id="result6" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 7 -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider7"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 7 </span> Sắp xếp tăng dần
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider7"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="sapXepTangDan()" class="btn">
+                Sắp xếp tăng dần
+              </button>
+              <div id="result7" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 8 -->
+
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider8"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 8 </span> Tìm số nguyên tố đầu tiên
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider8"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="timSoNguyenToDauTien()" class="btn">
+                Tìm số nguyên tố đầu tiên
+              </button>
+              <div id="result8" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bài 9 -->
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider9"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 9 </span> Đếm số nguyên
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider9"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <div class="flex my-3 space-x-3">
+                <input
+                  id="input9"
+                  class="inputText w-1/2"
+                  type="text"
+                  placeholder="Nhập số"
+                />
+
+                <button id="btnThemSo" class="btn">Thêm số</button>
+              </div>
+              <div id="arr9" class="rounded-md bg-[#D1E7DD] my-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+              <button onclick="demSoNguyen()" class="btn">Đếm số nguyên</button>
+              <div id="result9" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Baì 10 -->
+          <button
+            id="dropdownDividerButton"
+            data-dropdown-toggle="dropdownDivider10"
+            data-dropdown-placement="bottom"
+            class="btnClick text-black border focus:bg-blue-50 focus:text-blue-500 w-full justify-between focus:outline-none text-lg px-5 py-2.5 text-center inline-flex items-center"
+            type="button"
+          >
+            <div class="flex items-center">
+              <span class="icon__number"> 10 </span> So sánh số âm và số dương
+            </div>
+            <div class="focus:rotate-180">
+              <svg
+                class="w-2.5 h-2.5 ms-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 1 4 4 4-4"
+                />
+              </svg>
+            </div>
+            <svg
+              class="w-2.5 h-2.5 ms-3 hidden"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 5"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"
+              />
+            </svg>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div class="relative">
+            <div
+              data-dropdown-toggle="dropdown"
+              data-popper-reference-hidden="false"
+              id="dropdownDivider10"
+              class="dropdown-menu z-10 bg-white divide-gray-100 hidden w-full px-4 py-4"
+            >
+              <button onclick="soSanhSoAmDuong()" class="btn">So Sánh</button>
+              <div id="result10" class="rounded-md bg-[#D1E7DD] mt-4 p-4">
+                <i class="fa fa-hand-point-right icon"></i><span></span>
+              </div>
             </div>
           </div>
         </div>
@@ -110,5 +677,7 @@
     </div>
 
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>

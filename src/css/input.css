@@ -17,3 +17,15 @@
 .inputText {
   @apply px-4 border shadow-lg border-slate-400 outline-none text-sm rounded-md;
 }
+
+.dropdown-menu {
+  position: static !important;
+  /* top: 100% !important;
+  bottom: auto !important; */
+  transform: translate3d(0, 0px, 0) !important;
+  transition: transform 0.3s ease !important;
+}
+.icon__number {
+  @apply bg-blue-400 px-2 py-1  text-white 
+  rounded-md text-xs font-bold mr-2;
+}
